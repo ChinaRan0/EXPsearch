@@ -6,8 +6,12 @@ python的requests,etree,re
 kali的searchsploit（因为searchsploit的数据exploit-db的库，而exploit-db太难爬了，所以就省略了，直接调用searchsploit）
 ## 环境安装
 pip3 install requests
+
+
+
 pip3 install lxlm
-pip3 install re
+
+
 apt install searchsploit（如果你是kali则不需要运行）
 ## 调用的数据来源:
 绿盟，expku.com，exploit-db，阿里云漏洞库，Vulhub
