@@ -3,6 +3,9 @@
 nm一个个找漏洞信息太jb慢了，自己写个小脚本一键查询。
 ## 原理
 python的requests,etree,re
+
+
+
 kali的searchsploit（因为searchsploit的数据exploit-db的库，而exploit-db太难爬了，所以就省略了，直接调用searchsploit）
 ## 环境安装
 pip3 install requests
