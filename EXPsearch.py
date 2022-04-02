@@ -145,10 +145,39 @@ def Vulhub(content) :
         print(url_re_etree_name[j])
         print(url + url_re_etree_link[j]) 
         j = j+1
+    Wuyun(content)
+def Wuyun(content) :
+
+    url1 = f'https://wooyun.website/list.php?keyword={content}&p=1'
+    url1_jiance = requests.get(url=url1,headers=headerss)
+    url1_jiance.encoding = ('utf-8')
+    obj = re.compile(r'.*?totalPages:(?P<yeshu>.*?),',re.S)
+    obj_num = obj.findall(url1_jiance.text)
+    print(obj_num[0].strip())
+    if obj_num[0].strip() == 0 :
+        # return 0
+        print('没有结果')
+    j=1
+    while j <= int(obj_num[0].strip()) :
+        url2 = f'https://wooyun.website/list.php?keyword={content}&p={j}' 
+        url2_re = requests.get(url=url2,headers=headerss)
+        url2_re.encoding = ("UTF-8")
+        url2_re_etree = etree.HTML(url2_re.text)
+        obj2 = re.compile(r'.*?<td><a href="(?P<link>.*?)">(?P<name>.*?)</a>.*?</td><td>(?P<types>.*?)',re.S)
+        url2_re_rection = obj2.finditer(url2_re.text)
+        for it in url2_re_rection :
+            print(it.group("name") + '\n' + 'https://wooyun.website' + it.group("link"))
+        time.sleep(1)
+        j=j+1
 
 print('请输入搜索模式:')
+print('----------------------------')
+print('本程序所调用的网站：\n绿盟,expku.com,exploit-db,阿里云漏洞库,Vulhub,\n4.2好新增乌云漏洞库')
+print('----------------------------')
+
 print('1.CVE漏洞查询')
 print('2.关键字漏洞查询')
+print('(1 or 2 :)')
 mode = input()
 if mode == "1" :
     CVE()
