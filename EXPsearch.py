@@ -53,7 +53,7 @@ def KeyWord():
     time.sleep(5)
     i = 1
     while i <= yeshu :
-        url11 = f'http://www.nsfocus.net/index.php?act=sec_bug&type_id=&os=&keyword={content}&page={i}'     #调试用，后期ThinkPHP改掉
+        url11 = f'http://www.nsfocus.net/index.php?act=sec_bug&type_id=&os=&keyword={content}&page={i}'    
         url11_re = requests.get(url=url11,headers=headerss)
         url11_re.encoding = ('utf-8')
         url11_re_etree = etree.HTML(url11_re.text)
@@ -117,7 +117,7 @@ def AliEXP(content) :
     tmp2 = int(yeshu_number)%25
     if tmp2 != 0 :
         tmp1=tmp1+1
-    print(tmp1)
+    
      
     j=1
     while j<=tmp1 :
@@ -153,7 +153,6 @@ def Wuyun(content) :
     url1_jiance.encoding = ('utf-8')
     obj = re.compile(r'.*?totalPages:(?P<yeshu>.*?),',re.S)
     obj_num = obj.findall(url1_jiance.text)
-    print(obj_num[0].strip())
     if obj_num[0].strip() == 0 :
         # return 0
         print('没有结果')
@@ -170,15 +169,14 @@ def Wuyun(content) :
         time.sleep(1)
         j=j+1
 
-print('请输入搜索模式:')
-print('----------------------------')
-print('本程序所调用的网站：\n绿盟,expku.com,exploit-db,阿里云漏洞库,Vulhub,\n4.2好新增乌云漏洞库')
-print('----------------------------')
 
+print('----------------------------')
+print('本程序所调用的网站：\n绿盟,expku.com,exploit-db,阿里云漏洞库,Vulhub,\n2022.4.2日新增乌云漏洞库')
+print('----------------------------')
+print('请输入搜索模式:')
 print('1.CVE漏洞查询')
 print('2.关键字漏洞查询')
-print('(1 or 2 :)')
-mode = input()
+mode = input('(1 or 2):')
 if mode == "1" :
     CVE()
 if mode == "2" :
