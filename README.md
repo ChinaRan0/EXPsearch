@@ -18,4 +18,5 @@ pip3 install lxlm
 apt install searchsploit（如果你是kali则不需要运行）
 ## 调用的数据来源:
 绿盟，expku.com，exploit-db，阿里云漏洞库，Vulhub
+2022.4.2新增乌云漏洞库
 后期继续加
